@@ -11,13 +11,17 @@ import Filter from "./components/Filter/Filter";
 import Navbar from "./components/Navbar/Navbar";
 
 
-let api = `https://rickandmortyapi.com/api/character/?page=1`
+// let api = `https://rickandmortyapi.com/api/character/?page=1`
 
 
 function App() {
 
   const [fetchedData, setFetchedData] = useState([]);
   let {info, results} = fetchedData;
+  let [pageNumber, updatePageNumber] = useState(1);
+  let [search, SetSearch] = useState('');
+
+let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
 
   // when api change, will fresh new data
   useEffect(() => {
@@ -33,6 +37,7 @@ function App() {
     <h1 className="text-center mb-3">
       Characters
     </h1>
+    <Search setSearch={SetSearch} updatePageNumber={updatePageNumber} />
     <div className="container">
       <div className="row">
         Filter component will be placed here

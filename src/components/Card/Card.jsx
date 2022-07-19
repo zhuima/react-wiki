@@ -4,13 +4,12 @@ import styles from './Card.module.scss'
 const Card = ({ results }) => {
   let display
   if (results) {
-
     display = results.map((result) => {
-      let {id, image, name, status, location } = result
+      let { id, image, name, status, location } = result
       return (
         <div
-        key={id}
-        className="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 position-relative text-dark"
+          key={id}
+          className="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 position-relative text-dark"
         >
           <div
             className={`${styles.card} d-flex flex-column justify-content-center`}
@@ -24,6 +23,33 @@ const Card = ({ results }) => {
               </div>
             </div>
           </div>
+          {(() => {
+            if (status === 'Dead') {
+              return (
+                <div
+                  className={`${styles.badge} position-absolute badge bg-danger`}
+                >
+                  {status}
+                </div>
+              )
+            } else if (status === 'Alive') {
+              return (
+                <div
+                  className={`${styles.badge} position-absolute badge bg-success`}
+                >
+                  {status}
+                </div>
+              )
+            } else {
+              return (
+                <div
+                  className={`${styles.badge} position-absolute badge bg-secondary`}
+                >
+                  {status}
+                </div>
+              )
+            }
+          })()}
         </div>
       )
     })
