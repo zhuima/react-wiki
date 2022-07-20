@@ -6,6 +6,7 @@ const Pagination = ({ pageNumber, info, updatePageNumber }) => {
     updatePageNumber(data.selected + 1);
   };
 
+  let numberOfDisplaysPerpage = 5;
   const [width, setWidth] = useState(window.innerWidth);
   const updateDimensions = () => {
     setWidth(window.innerWidth);
@@ -52,10 +53,12 @@ const Pagination = ({ pageNumber, info, updatePageNumber }) => {
         activeClassName="active"
         marginPagesDisplayed={width < 576 ? 1 : 2}
         pageRangeDisplayed={width < 576 ? 1 : 2}
+        // eslint-disable-next-line react/prop-types
         pageCount={info?.pages}
         onPageChange={pageChange}
         pageClassName="page-item"
         pageLinkClassName="page-link"
+        itemsPerPage={4}
       />
     </>
   );
