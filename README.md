@@ -24,3 +24,4 @@ react wiki
 
 - [ ] rewrite this project with typescript
 - [ ] complete the backend server with express or next.js
+- [ ] add tests
