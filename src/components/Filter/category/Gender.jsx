@@ -1,6 +1,7 @@
 import React from "react";
 import FilterBTN from "../FilterBTN";
 
+// eslint-disable-next-line react/prop-types
 const Gender = ({ updateGender, updatePageNumber }) => {
   let genders = ["female", "male", "genderless", "unknown"];
   return (

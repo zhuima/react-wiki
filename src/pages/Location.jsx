@@ -11,7 +11,7 @@ const Location = () => {
   let api = `https://rickandmortyapi.com/api/location/${number}`
 
   useEffect(() => {
-    ;(async function () {
+    (async function () {
       let data = await fetch(api).then((res) => res.json())
       setInfo(data)
       let a = await Promise.all(
@@ -20,6 +20,9 @@ const Location = () => {
         })
       )
       setResults(a)
+      console.log('====================================')
+      console.log(`now, request uri is: ${api}`)
+      console.log('====================================')
     })()
   }, [api])
 
@@ -43,7 +46,7 @@ const Location = () => {
         </div>
         <div className="col-lg-8 col-12">
           <div className="row">
-            <Card page="/episodes/" results={results} />
+            <Card page="/location/" results={results} />
           </div>
         </div>
       </div>

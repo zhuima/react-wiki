@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import ReactPaginate from "react-paginate";
+import React, { useState, useEffect } from 'react'
+import ReactPaginate from 'react-paginate'
 
+// eslint-disable-next-line react/prop-types
 const Pagination = ({ pageNumber, info, updatePageNumber }) => {
   let pageChange = (data) => {
-    updatePageNumber(data.selected + 1);
-  };
+    updatePageNumber(data.selected + 1)
+  }
 
-  let numberOfDisplaysPerpage = 5;
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(window.innerWidth)
   const updateDimensions = () => {
-    setWidth(window.innerWidth);
-  };
+    setWidth(window.innerWidth)
+  }
   useEffect(() => {
-    window.addEventListener("resize", updateDimensions);
+    window.addEventListener('resize', updateDimensions)
     return () => {
-      window.removeEventListener("resize", updateDimensions);
-    };
-  }, []);
+      window.removeEventListener('resize', updateDimensions)
+    }
+  }, [])
 
   return (
     <>
@@ -61,6 +61,6 @@ const Pagination = ({ pageNumber, info, updatePageNumber }) => {
         itemsPerPage={4}
       />
     </>
-  );
-};
-export default Pagination;
+  )
+}
+export default Pagination

@@ -4,12 +4,12 @@ import { useParams } from 'react-router-dom'
 const CardDeatils = () => {
   let { id } = useParams()
   let [fetchedData, updateFetchedData] = useState([])
-  let { name, locatio, origin, gender, image, status, species } = fetchedData
+  let { name, location, origin, gender, image, status, species } = fetchedData
 
   let api = `https://rickandmortyapi.com/api/character/${id}`
 
   useEffect(() => {
-    ;(async function () {
+    (async function () {
       let data = await fetch(api).then((res) => res.json())
       updateFetchedData(data)
     })()

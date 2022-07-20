@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import InputGroup from '../components/Filter/category/InputGroup'
 import Card from '../components/Card/Card'
+
 const Episodes = () => {
   let [results, setResults] = useState([])
   let [info, setInfo] = useState([])
-  let { air_date, episode, name } = info
+  let { air_date, name } = info
   let [id, setID] = useState(1)
 
   let api = `https://rickandmortyapi.com/api/episode/${id}`
 
   useEffect(() => {
-    ;(async function () {
+    (async function () {
       let data = await fetch(api).then((res) => res.json())
       setInfo(data)
       let a = await Promise.all(
@@ -19,6 +20,9 @@ const Episodes = () => {
         })
       )
       setResults(a)
+      console.log('====================================')
+      console.log(`now, request uri is: ${api}`)
+      console.log('====================================')
     })()
   }, [api])
 

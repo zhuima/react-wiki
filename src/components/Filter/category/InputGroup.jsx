@@ -1,5 +1,6 @@
 import React from 'react'
 
+// eslint-disable-next-line react/prop-types
 const InputGroup = ({ name, changeID, total }) => {
   return (
     <div className="input-group mb-3">

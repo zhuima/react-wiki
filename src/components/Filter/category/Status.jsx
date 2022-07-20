@@ -1,6 +1,7 @@
 import React from 'react'
 import FilterBTN from '../FilterBTN'
 
+// eslint-disable-next-line react/prop-types
 const Status = ({ updateStatus, updatePageNumber }) => {
   let status = ['Alive', 'Dead', 'Unknown']
   return (

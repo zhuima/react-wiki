@@ -39,15 +39,22 @@ const Home = () => {
 
   // when api change, will fresh new data
   useEffect(() => {
-    ;(async function () {
+    (async function () {
       let data = await fetch(api).then((res) => res.json())
       setFetchedData(data)
+      console.log('====================================')
+      console.log(`now, request uri is: ${api}`)
+      console.log('====================================')
     })()
   }, [api])
   return (
     <div className="App">
       <h1 className="text-center mb-3">Characters</h1>
-      <Search setSearch={SetSearch} updatePageNumber={updatePageNumber} />
+      <Search
+        search={search}
+        setSearch={SetSearch}
+        updatePageNumber={updatePageNumber}
+      />
       <div className="container">
         <div className="row">
           <Filter

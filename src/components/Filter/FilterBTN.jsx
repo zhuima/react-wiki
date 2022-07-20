@@ -1,5 +1,6 @@
 import React from 'react'
 
+// eslint-disable-next-line react/prop-types
 const FilterBTN = ({ input, task, updatePageNumber, index, name }) => {
   return (
     <div>
@@ -22,7 +23,7 @@ const FilterBTN = ({ input, task, updatePageNumber, index, name }) => {
           id={`${name}-${index}`}
         />
         <label
-          onClick={(x) => {
+          onClick={() => {
             task(input)
             updatePageNumber(1)
           }}

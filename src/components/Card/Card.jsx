@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Card.module.scss'
 
+// eslint-disable-next-line react/prop-types
 const Card = ({ page, results }) => {
   let display
   if (results) {
+    // eslint-disable-next-line react/prop-types
     display = results.map((result) => {
       let { id, image, name, status, location } = result
       return (
